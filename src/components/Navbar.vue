@@ -7,8 +7,8 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#/">Dashboard</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
+        <b-nav-item v-if="isLoggedIn" href="#/">Dashboard</b-nav-item>
+        <!-- <b-nav-item v-if="isLoggedIn" href="#" disabled>Disabled</b-nav-item> -->
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -33,9 +33,10 @@
         </b-nav-item-dropdown>
       </b-navbar-nav>
       <ul class="right">
-        <li><router-link to="/login">Login</router-link></li>
-        <li><router-link to="/signup">Sign up</router-link></li>
-        <li><button v-on:click="logout" class="btn black white-text">Logout</button></li>
+        <li v-if="isLoggedIn"><span class="email black-text">{{currentUser}}</span></li>
+        <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
+        <li v-if="!isLoggedIn"><router-link to="/signup">Sign up</router-link></li>
+        <li v-if="isLoggedIn"><button v-on:click="logout" class="btn black white-text">Logout</button></li>
       </ul>
     </b-collapse>
   </b-navbar>
@@ -54,7 +55,10 @@ export default {
     };
   },
   created() {
+      //debugger;
+      console.log(firebase.auth().currentUser);
     if (firebase.auth().currentUser) {
+        alert(firebase.auth().currentUser);
       this.isLoggedIn = true;
       this.currentUser = firebase.auth().currentUser.email;
     }

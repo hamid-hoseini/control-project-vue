@@ -1,12 +1,11 @@
 <template>
 <div id="app">
 
-<Navbar />
-<router-view></router-view>
+  <Navbar />
+  <router-view></router-view>
 </div>
 </template>
 
-script
 <script>
   import Navbar from './components/Navbar';
 

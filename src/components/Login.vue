@@ -43,8 +43,10 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-            alert(`You are logged in as ${user.email}`);
-            this.$router.go({ path: this.$router.path });
+              console.log(firebase.auth().currentUser);
+            //alert(`You are logged in as ${user.email}`);
+            //this.$router.go({ path: this.$router.path });
+            this.$router.push('/');
           },
           err => {
             alert(err.message);

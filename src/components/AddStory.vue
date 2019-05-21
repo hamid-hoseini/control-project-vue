@@ -74,7 +74,7 @@
                          :max-rows="6">{{story.description}}</b-form-textarea>
             </b-form-group>
           <b-button type="submit" variant="primary">Save</b-button>
-          <b-button type="button" variant="primary" @click="submitAll">Save</b-button>
+          <!-- <b-button type="button" variant="primary" @click="submitAll">Bulk Save</b-button> -->
         </b-form>
       </b-jumbotron>
     </b-col>

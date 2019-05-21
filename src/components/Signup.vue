@@ -46,7 +46,7 @@ export default {
           user => {
             this.result = user;
             alert(`Account created for ${user.email}`);
-            this.$router.push('/');
+            this.$router.go({ path: this.$router.path });
           },
           err => {
             alert(err.message);
