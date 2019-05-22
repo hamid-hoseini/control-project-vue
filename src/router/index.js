@@ -65,6 +65,7 @@ let router = new VueRouter({
 
 // Nav Guard
 router.beforeEach((to, from, next) => {
+  console.log(to);
   // Check for requiresAuth guard
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // Check if NO logged user

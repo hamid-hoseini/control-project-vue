@@ -56,11 +56,11 @@ export default {
   },
   created() {
       //debugger;
-      console.log(firebase.auth().currentUser);
+      //console.log(firebase.auth().currentUser);
     if (firebase.auth().currentUser) {
-        alert(firebase.auth().currentUser);
-      this.isLoggedIn = true;
-      this.currentUser = firebase.auth().currentUser.email;
+        //alert(firebase.auth().currentUser);
+        this.isLoggedIn = true;
+        this.currentUser = firebase.auth().currentUser.email;
     }
   },
   methods: {

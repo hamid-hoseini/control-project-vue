@@ -5,12 +5,20 @@ import router from './router'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import firebase from 'firebase'
+import './Firebase'
+
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 
-new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app')
+let app;
+firebase.auth().onAuthStateChanged(function() {
+  if (!app) {
+    new Vue({
+      router,
+      render: h => h(App),
+    }).$mount('#app')
+  }
+});
